@@ -7,9 +7,11 @@
     "build": "remix vite:build",
     "deploy": "npm run build && wrangler pages deploy",
     "dev": "remix vite:dev",
-    "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
+    "preview": "npm run build && wrangler pages preview",
     "start": "wrangler pages dev ./build/client",
-    "type:check": "tsc"
+    "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
+    "type:check": "tsc",
+    "type:gen": "wrangler types"
   },
   "dependencies": {
     "@remix-run/cloudflare": "^2.9.2",
@@ -41,7 +43,7 @@
     "typescript": "^5.4.5",
     "vite": "^5.1.0",
     "vite-tsconfig-paths": "^4.2.1",
-    "wrangler": "^3.60.0"
+    "wrangler": "^3.60.2"
   },
   "engines": {
     "node": ">=20.0.0"
