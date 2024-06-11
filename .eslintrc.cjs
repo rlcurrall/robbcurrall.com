@@ -75,7 +75,7 @@ module.exports = {
 
     // Node
     {
-      files: [".eslintrc.cjs"],
+      files: [".eslintrc.cjs", "postcss.config.cjs", "tailwind.config.ts"],
       env: {
         node: true,
       },
