@@ -18,7 +18,7 @@ export function meta(): MetaDescriptor[] {
 
 export default function Index() {
   return (
-    <div className="flex h-full flex-col items-center justify-center gap-12">
+    <div className="flex h-screen flex-col items-center justify-center gap-12">
       <header className="flex flex-col items-center justify-center gap-4">
         <div className="rounded-full border-[6px] border-dotted border-amber-500">
           <img

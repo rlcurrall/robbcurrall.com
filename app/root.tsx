@@ -17,7 +17,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
       </head>
-      <body className="h-screen w-screen dark:bg-zinc-900 dark:text-white">
+      <body className="dark:bg-zinc-900 dark:text-white">
         {children}
         <ScrollRestoration />
         <Scripts />
