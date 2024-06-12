@@ -164,7 +164,7 @@ export default function Resume() {
 
           <Experience
             title="Software Engineer"
-            subtitle="CastleBranch"
+            subtitle="Avtec"
             startDate={new Date("2018-08-12")}
             endDate={new Date("2018-12-16")}
             showDateRange
