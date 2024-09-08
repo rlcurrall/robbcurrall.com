@@ -68,15 +68,17 @@ export default function Resume() {
             showDateRange
           >
             <p>
-              As a Senior Software Engineer on the &quot;Rev-Up&quot; team at
-              Vantaca, I lead the technical design and implementation of a
+              As a Senior Software Engineer on the "Homeowner Experience" team
+              at Vantaca, I lead the technical design and implementation of a
               cutting-edge payment solution within our existing HOA management
-              software.
+              software, lead the rewrite of our homeowner portal, as well as
+              the creation of an AI powered chatbot for answering homeowner
+              questions related to their HOA and CC&amp;Rs.
             </p>
             <p>
               Working primarily in C# and leveraging the .NET framework, I
-              engineered multiple API services while also introducing Azure
-              Functions into our stack. These functions played a pivotal role in
+              designed multiple API services while also introducing serverless
+              functions into our stack. These functions played a pivotal role in
               processing background queues and incoming webhooks, allowing our
               system to scale efficiently and independently of user-facing APIs.
             </p>
