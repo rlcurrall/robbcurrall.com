@@ -191,13 +191,13 @@ export default function Resume() {
               <li>JavaScript</li>
               <li>TypeScript</li>
               <li>SQL</li>
-              <li>C#</li>
+              <li>C# / .NET</li>
               <li>PHP</li>
+              <li>Python</li>
               <li>Rust</li>
               <li>Go</li>
               <li>React</li>
               <li>Vue</li>
-              <li>.NET</li>
             </List>
 
             <List>
