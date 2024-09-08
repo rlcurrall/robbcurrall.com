@@ -81,11 +81,13 @@ export default function Resume() {
               system to scale efficiently and independently of user-facing APIs.
             </p>
             <p>
-              In the initial week of product launch, our payment solution
-              processed over 36,000 transactions, totaling more than $10 million
-              in gross volume, with zero disruptions in service. This
-              achievement underscored the reliability and effectiveness of our
-              solution.
+              In the first 12 months after the launch of our payment solution we
+              have processed over $313 million in gross volume. The robust retry
+              mechanisms and alerting we implemented ensured that disruptions to
+              payment processing was kept to a minimum. As a result, we were
+              able to act quickly to any issues and reslove them before any
+              customers were affected, which in turn reduced the support tickets
+              generated related to payments.
             </p>
           </Experience>
 
