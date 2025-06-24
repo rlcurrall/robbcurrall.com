@@ -1,4 +1,4 @@
-import { MetaDescriptor } from "@remix-run/cloudflare";
+import type { MetaDescriptor } from "react-router";
 import {
   createPersonStructuredData,
   createWebsiteStructuredData,

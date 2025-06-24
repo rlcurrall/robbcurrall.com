@@ -1,4 +1,4 @@
-import { MetaDescriptor } from "@remix-run/cloudflare";
+import type { MetaDescriptor } from "react-router";
 import { differenceInCalendarMonths } from "date-fns/differenceInCalendarMonths";
 import { format } from "date-fns/format";
 import { createWorkExperienceStructuredData } from "~/utils/structured-data";
