@@ -1,10 +1,17 @@
 import { MetaDescriptor } from "@remix-run/cloudflare";
+import {
+  createPersonStructuredData,
+  createWebsiteStructuredData,
+} from "~/utils/structured-data";
 
 const title = "Robb Currall - Senior Software Engineer";
 const description =
   "Robb Currall. The man. The myth. The legend. Father, Software Engineer, and D&D nerd.";
 
 export function meta(): MetaDescriptor[] {
+  const personData = createPersonStructuredData();
+  const websiteData = createWebsiteStructuredData();
+
   return [
     { title },
     { name: "description", content: description },
@@ -13,20 +20,35 @@ export function meta(): MetaDescriptor[] {
     { property: "og:description", content: description },
     { property: "twitter:title", content: title },
     { property: "twitter:description", content: description },
+    {
+      "script:ld+json": personData,
+    },
+    {
+      "script:ld+json": websiteData,
+    },
   ];
 }
 
 export default function Index() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-700">
-      <div className="absolute inset-0 opacity-40" style={{ backgroundImage: "url('data:image/svg+xml,%3Csvg width=\"60\" height=\"60\" viewBox=\"0 0 60 60\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"none\" fill-rule=\"evenodd\"%3E%3Cg fill=\"%232563eb\" fill-opacity=\"0.08\"%3E%3Ccircle cx=\"30\" cy=\"30\" r=\"2\"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')" }}></div>
-      
+      <div
+        className="absolute inset-0 opacity-40"
+        style={{
+          backgroundImage:
+            'url(\'data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%232563eb" fill-opacity="0.08"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\')',
+        }}
+      ></div>
+
       <div className="relative flex min-h-screen flex-col items-center justify-center px-4 py-12">
         <div className="w-full max-w-3xl text-center">
           <header className="mb-16">
             <div className="relative mb-10 inline-block">
               <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-blue-400 to-indigo-400 opacity-20 blur-lg"></div>
-              <div className="relative rounded-full bg-orange-600 p-2 ring-1 ring-orange-200 dark:bg-orange-600 dark:ring-orange-600" style={{ boxShadow: '0 0 20px rgba(251, 146, 60, 0.4)' }}>
+              <div
+                className="relative rounded-full bg-orange-600 p-2 ring-1 ring-orange-200 dark:bg-orange-600 dark:ring-orange-600"
+                style={{ boxShadow: "0 0 20px rgba(251, 146, 60, 0.4)" }}
+              >
                 <img
                   src="/robb+mira.jpg"
                   alt="Robb and Mira"
@@ -36,7 +58,7 @@ export default function Index() {
                 />
               </div>
             </div>
-            
+
             <div className="space-y-6">
               <div className="space-y-3">
                 <h1 className="text-5xl/[1.1] font-bold text-gray-900 md:text-6xl/[1.1] dark:text-white">
@@ -46,11 +68,12 @@ export default function Index() {
                   Digital Architect
                 </p>
               </div>
-              
+
               <div className="mx-auto max-w-2xl">
                 <p className="text-lg/7 text-gray-600 dark:text-gray-300">
-                  I build thoughtful software solutions that solve real problems. 
-                  When I&apos;m not coding, I enjoy tabletop gaming and spending quality time with my family.
+                  I build thoughtful software solutions that solve real
+                  problems. When I&apos;m not coding, I enjoy tabletop gaming
+                  and spending quality time with my family.
                 </p>
               </div>
             </div>
@@ -97,11 +120,11 @@ function SocialLinks() {
           description="Experience & skills"
         />
       </div>
-      
+
       <div className="flex justify-center">
         <a
           href="mailto:robb@currall.net"
-          className="relative isolate inline-flex items-center gap-x-2 rounded-lg border border-transparent bg-orange-600 px-[calc(1rem-1px)] py-[calc(0.75rem-1px)] text-base/6 font-semibold text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 focus:outline-2 focus:outline-offset-2 focus:outline-orange-500 before:absolute before:inset-0 before:-z-10 before:rounded-[calc(0.5rem-1px)] before:bg-orange-500 before:shadow-sm after:absolute after:inset-0 after:-z-10 after:rounded-[calc(0.5rem-1px)] after:shadow-[inset_0_1px_theme(colors.white/15%)] hover:after:bg-white/10 dark:before:hidden dark:after:-inset-px dark:after:rounded-lg dark:hover:after:bg-white/5"
+          className="relative isolate inline-flex items-center gap-x-2 rounded-lg border border-transparent bg-orange-600 px-[calc(1rem-1px)] py-[calc(0.75rem-1px)] text-base/6 font-semibold text-white shadow-sm transition-all duration-200 before:absolute before:inset-0 before:-z-10 before:rounded-[calc(0.5rem-1px)] before:bg-orange-500 before:shadow-sm after:absolute after:inset-0 after:-z-10 after:rounded-[calc(0.5rem-1px)] after:shadow-[inset_0_1px_theme(colors.white/15%)] hover:-translate-y-0.5 hover:after:bg-white/10 focus:outline-2 focus:outline-offset-2 focus:outline-orange-500 dark:before:hidden dark:after:-inset-px dark:after:rounded-lg dark:hover:after:bg-white/5"
         >
           <EmailIcon />
           <span>Get in touch</span>
@@ -111,16 +134,16 @@ function SocialLinks() {
   );
 }
 
-function SocialLink({ 
-  href, 
-  icon, 
-  label, 
+function SocialLink({
+  href,
+  icon,
+  label,
   description,
-  external = false 
-}: { 
-  href: string; 
-  icon: React.ReactNode; 
-  label: string; 
+  external = false,
+}: {
+  href: string;
+  icon: React.ReactNode;
+  label: string;
   description: string;
   external?: boolean;
 }) {
@@ -131,12 +154,17 @@ function SocialLink({
       rel={external ? "noreferrer" : undefined}
       className="group flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-base/6 font-medium text-zinc-950 transition-colors hover:bg-zinc-950/5 focus:outline-2 focus:outline-offset-2 focus:outline-blue-500 dark:text-white dark:hover:bg-white/5"
     >
-      <div className="shrink-0 text-zinc-500 transition-colors group-hover:text-zinc-950 dark:text-zinc-400 dark:group-hover:text-white" data-slot="icon">
+      <div
+        className="shrink-0 text-zinc-500 transition-colors group-hover:text-zinc-950 dark:text-zinc-400 dark:group-hover:text-white"
+        data-slot="icon"
+      >
         {icon}
       </div>
       <div className="min-w-0 flex-1">
         <div className="font-semibold">{label}</div>
-        <div className="text-sm text-zinc-500 dark:text-zinc-400">{description}</div>
+        <div className="text-sm text-zinc-500 dark:text-zinc-400">
+          {description}
+        </div>
       </div>
     </a>
   );

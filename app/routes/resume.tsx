@@ -1,12 +1,15 @@
 import { MetaDescriptor } from "@remix-run/cloudflare";
 import { differenceInCalendarMonths } from "date-fns/differenceInCalendarMonths";
 import { format } from "date-fns/format";
+import { createWorkExperienceStructuredData } from "~/utils/structured-data";
 
 const title = "Robb Currall - Senior Software Engineer";
 const description =
   "Robb Currall. The man. The myth. The legend. Father, Software Engineer, and D&D nerd.";
 
 export function meta(): MetaDescriptor[] {
+  const workExperienceData = createWorkExperienceStructuredData();
+
   return [
     { title },
     { name: "description", content: description },
@@ -15,12 +18,15 @@ export function meta(): MetaDescriptor[] {
     { property: "og:description", content: description },
     { property: "twitter:title", content: title },
     { property: "twitter:description", content: description },
+    {
+      "script:ld+json": workExperienceData,
+    },
   ];
 }
 
 export default function Resume() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-700 print:bg-white print:min-h-0">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-700 print:min-h-0 print:bg-white">
       <div className="mx-auto max-w-4xl px-6 py-12 print:max-w-full print:px-8 print:py-6">
         <header className="mb-12 rounded-xl border border-white/60 bg-white/40 p-8 shadow-sm backdrop-blur-sm transition-all duration-300 hover:border-white/80 hover:bg-white/60 dark:border-slate-700/60 dark:bg-slate-800/40 dark:hover:border-slate-700/80 dark:hover:bg-slate-800/60 print:mb-6 print:border-0 print:bg-transparent print:p-0 print:shadow-none">
           <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-start print:gap-4">
@@ -28,7 +34,7 @@ export default function Resume() {
               <h1 className="text-5xl/[1.1] font-bold text-zinc-950 dark:text-white print:text-3xl print:text-black">
                 Robb Currall
               </h1>
-              <p className="text-2xl/8 font-medium text-orange-600 dark:text-orange-400 print:text-lg print:text-black print:font-normal">
+              <p className="text-2xl/8 font-medium text-orange-600 dark:text-orange-400 print:text-lg print:font-normal print:text-black">
                 Senior Software Engineer
               </p>
             </div>
@@ -58,10 +64,11 @@ export default function Resume() {
               My passion for optimizing user experiences and streamlining
               development workflows is matched only by my enthusiasm for
               continuous learning and exploration. I thrive on challenges and
-              constantly seek opportunities to expand my skill set and delve into
-              new technology. In particular, I am drawn to the power and elegance
-              of Rust and Go on the backend, integrating their innovative ideas
-              and philosophies into my work across various languages.
+              constantly seek opportunities to expand my skill set and delve
+              into new technology. In particular, I am drawn to the power and
+              elegance of Rust and Go on the backend, integrating their
+              innovative ideas and philosophies into my work across various
+              languages.
             </p>
           </InternalSection>
 
@@ -75,28 +82,30 @@ export default function Resume() {
               showDateRange
             >
               <p>
-                As a Senior Software Engineer on the &quot;Homeowner Experience&quot; team
-                at Vantaca, I lead the technical design and implementation of a
-                cutting-edge payment solution within our existing HOA management
-                software, lead the rewrite of our homeowner portal, as well as
-                the creation of an AI powered chatbot for answering homeowner
-                questions related to their HOA and CC&amp;Rs.
+                As a Senior Software Engineer on the &quot;Homeowner
+                Experience&quot; team at Vantaca, I lead the technical design
+                and implementation of a cutting-edge payment solution within our
+                existing HOA management software, lead the rewrite of our
+                homeowner portal, as well as the creation of an AI powered
+                chatbot for answering homeowner questions related to their HOA
+                and CC&amp;Rs.
               </p>
               <p>
                 Working primarily in C# and leveraging the .NET framework, I
                 designed multiple API services while also introducing serverless
-                functions into our stack. These functions played a pivotal role in
-                processing background queues and incoming webhooks, allowing our
-                system to scale efficiently and independently of user-facing APIs.
+                functions into our stack. These functions played a pivotal role
+                in processing background queues and incoming webhooks, allowing
+                our system to scale efficiently and independently of user-facing
+                APIs.
               </p>
               <p>
-                In the first 12 months after the launch of our payment solution we
-                have processed over $313 million in gross volume. The robust retry
-                mechanisms and alerting we implemented ensured that disruptions to
-                payment processing was kept to a minimum. As a result, we were
-                able to act quickly to any issues and reslove them before any
-                customers were affected, which in turn reduced the support tickets
-                generated related to payments.
+                In the first 12 months after the launch of our payment solution
+                we have processed over $313 million in gross volume. The robust
+                retry mechanisms and alerting we implemented ensured that
+                disruptions to payment processing was kept to a minimum. As a
+                result, we were able to act quickly to any issues and reslove
+                them before any customers were affected, which in turn reduced
+                the support tickets generated related to payments.
               </p>
             </Experience>
 
@@ -109,11 +118,11 @@ export default function Resume() {
             >
               At Hip eCommerce, I lead the development of a comprehensive comic
               book collection tracker tool. This tool seamlessly integrates with
-              our image recognition system, allowing comic book collectors to scan
-              their comics effortlessly for cataloging purposes. Leveraging Kafka,
-              we ingested live price updates to provide users with real-time
-              valuations of their collections, enhancing the platform&apos;s
-              utility and user experience.
+              our image recognition system, allowing comic book collectors to
+              scan their comics effortlessly for cataloging purposes. Leveraging
+              Kafka, we ingested live price updates to provide users with
+              real-time valuations of their collections, enhancing the
+              platform&apos;s utility and user experience.
             </Experience>
 
             <Experience
@@ -124,11 +133,12 @@ export default function Resume() {
               showDateRange
             >
               As a Senior Software Engineer at Hip eCommerce, I worked on the
-              development of an image recognition tool that revolutionized product
-              listing processes, enabling merchants to list comics on the platform
-              ten times faster. This innovative solution significantly increased
-              user engagement and streamlined operations, contributing to Hip
-              eCommerce&apos;s continued success in the collectibles industry.
+              development of an image recognition tool that revolutionized
+              product listing processes, enabling merchants to list comics on
+              the platform ten times faster. This innovative solution
+              significantly increased user engagement and streamlined
+              operations, contributing to Hip eCommerce&apos;s continued success
+              in the collectibles industry.
             </Experience>
 
             <Experience
@@ -142,8 +152,9 @@ export default function Resume() {
               team, managing 3 developers on the team. My team worked to create
               the Wellness Center, a product set for school and hospital
               administrators to monitor employee health in the midst of the
-              COVID-19 pandemic. We built a JSON API using PHP, a Vue single page
-              application for the web portal, and a Xamarin mobile application.
+              COVID-19 pandemic. We built a JSON API using PHP, a Vue single
+              page application for the web portal, and a Xamarin mobile
+              application.
             </Experience>
 
             <Experience
@@ -153,10 +164,11 @@ export default function Resume() {
               endDate={new Date("2020-06-18")}
               showDateRange
             >
-              As a Software Engineer II, I worked as a mentor and trainer for new
-              developers. Additionally, I worked as the lead developer on two
-              projects, an external facing single sign-on solution utilizing SAML
-              authentication and an e-signature solution for the Bridges platform.
+              As a Software Engineer II, I worked as a mentor and trainer for
+              new developers. Additionally, I worked as the lead developer on
+              two projects, an external facing single sign-on solution utilizing
+              SAML authentication and an e-signature solution for the Bridges
+              platform.
             </Experience>
 
             <Experience
@@ -167,10 +179,11 @@ export default function Resume() {
               showDateRange
             >
               I joined CastleBranch as part of a team that was tasked with
-              creating an internal unified authentication solution for all of the
-              applications provided by CastleBranch. I implemented the front-end
-              single page application using Vue. I also built the user management
-              tool for internal users to diagnose and resolve user account issues.
+              creating an internal unified authentication solution for all of
+              the applications provided by CastleBranch. I implemented the
+              front-end single page application using Vue. I also built the user
+              management tool for internal users to diagnose and resolve user
+              account issues.
             </Experience>
 
             <Experience
@@ -269,30 +282,6 @@ export default function Resume() {
   );
 }
 
-function Section({
-  children,
-  id,
-  title,
-}: {
-  children: React.ReactNode;
-  id?: string;
-  title: string;
-}) {
-  return (
-    <section 
-      id={id} 
-      className="rounded-xl border border-white/60 bg-white/40 p-8 shadow-sm backdrop-blur-sm transition-all duration-300 hover:border-white/80 hover:bg-white/60 dark:border-slate-700/60 dark:bg-slate-800/40 dark:hover:border-slate-700/80 dark:hover:bg-slate-800/60 print:border-0 print:bg-transparent print:p-0 print:shadow-none"
-    >
-      <h2 className="mb-8 text-2xl/8 font-bold text-zinc-950 dark:text-white print:mb-3 print:text-xl print:text-black print:font-bold print:border-b print:border-gray-300 print:pb-1">
-        {title}
-      </h2>
-      <div className="space-y-6 print:space-y-3">
-        {children}
-      </div>
-    </section>
-  );
-}
-
 function InternalSection({
   children,
   id,
@@ -304,25 +293,11 @@ function InternalSection({
 }) {
   return (
     <section id={id} className="space-y-6 print:space-y-3">
-      <h2 className="text-2xl/8 font-bold text-zinc-950 dark:text-white print:text-xl print:text-black print:font-bold print:border-b print:border-gray-300 print:pb-1">
+      <h2 className="text-2xl/8 font-bold text-zinc-950 dark:text-white print:border-b print:border-gray-300 print:pb-1 print:text-xl print:font-bold print:text-black">
         {title}
       </h2>
-      <div className="space-y-6 print:space-y-3">
-        {children}
-      </div>
+      <div className="space-y-6 print:space-y-3">{children}</div>
     </section>
-  );
-}
-
-function Separator() {
-  return (
-    <div className="flex items-center justify-center py-6 print:hidden">
-      <div className="flex items-center space-x-4">
-        <div className="h-px w-16 bg-gradient-to-r from-transparent to-blue-200 dark:to-blue-800"></div>
-        <div className="h-1 w-1 rounded-full bg-blue-300 dark:bg-blue-700"></div>
-        <div className="h-px w-16 bg-gradient-to-l from-transparent to-blue-200 dark:to-blue-800"></div>
-      </div>
-    </div>
   );
 }
 
@@ -350,7 +325,9 @@ function List({
       ? "[&>li:not(:last-child)]:after:content-['•'] [&>li:not(:last-child)]:after:ml-2 [&>li:not(:last-child)]:after:text-slate-400"
       : "[&>li:not(:last-child)]:after:content-[',']";
   return (
-    <ul className={`flex flex-wrap gap-2 text-sm/5 font-medium text-zinc-700 dark:text-zinc-300 print:text-black ${separatorClass}`}>
+    <ul
+      className={`flex flex-wrap gap-2 text-sm/5 font-medium text-zinc-700 dark:text-zinc-300 print:text-black ${separatorClass}`}
+    >
       {children}
     </ul>
   );
@@ -373,9 +350,9 @@ function ContactInfo({
         <>
           <dt className="sr-only">Email</dt>
           <dd>
-            <a 
-              href={`mailto:${email}`} 
-              className="group flex items-center gap-2 rounded-md px-2 py-1.5 text-right font-medium text-zinc-600 transition-all duration-200 hover:bg-blue-50/50 hover:text-blue-600 dark:text-zinc-300 dark:hover:bg-blue-950/20 dark:hover:text-blue-400 print:bg-transparent print:text-black print:font-normal print:px-0 print:py-0"
+            <a
+              href={`mailto:${email}`}
+              className="group flex items-center gap-2 rounded-md px-2 py-1.5 text-right font-medium text-zinc-600 transition-all duration-200 hover:bg-blue-50/50 hover:text-blue-600 dark:text-zinc-300 dark:hover:bg-blue-950/20 dark:hover:text-blue-400 print:bg-transparent print:px-0 print:py-0 print:font-normal print:text-black"
             >
               <EmailIcon className="shrink-0 text-zinc-400 transition-colors group-hover:text-blue-500 dark:text-zinc-500 dark:group-hover:text-blue-400 print:hidden" />
               <span>{email}</span>
@@ -387,8 +364,8 @@ function ContactInfo({
         <>
           <dt className="sr-only">LinkedIn</dt>
           <dd>
-            <a 
-              className="group flex items-center gap-2 rounded-md px-2 py-1.5 text-right font-medium text-blue-600 transition-all duration-200 hover:bg-blue-50/50 hover:text-blue-700 dark:text-blue-400 dark:hover:bg-blue-950/20 dark:hover:text-blue-300 print:bg-transparent print:text-black print:font-normal print:px-0 print:py-0" 
+            <a
+              className="group flex items-center gap-2 rounded-md px-2 py-1.5 text-right font-medium text-blue-600 transition-all duration-200 hover:bg-blue-50/50 hover:text-blue-700 dark:text-blue-400 dark:hover:bg-blue-950/20 dark:hover:text-blue-300 print:bg-transparent print:px-0 print:py-0 print:font-normal print:text-black"
               href={linkedIn}
               target="_blank"
               rel="noreferrer"
@@ -403,9 +380,9 @@ function ContactInfo({
         <>
           <dt className="sr-only">Phone</dt>
           <dd>
-            <a 
+            <a
               href={`tel:${phone.replace(/( |-|\(|\))/g, "")}`}
-              className="group flex items-center gap-2 rounded-md px-2 py-1.5 text-right font-medium text-zinc-600 transition-all duration-200 hover:bg-blue-50/50 hover:text-blue-600 dark:text-zinc-300 dark:hover:bg-blue-950/20 dark:hover:text-blue-400 print:bg-transparent print:text-black print:font-normal print:px-0 print:py-0"
+              className="group flex items-center gap-2 rounded-md px-2 py-1.5 text-right font-medium text-zinc-600 transition-all duration-200 hover:bg-blue-50/50 hover:text-blue-600 dark:text-zinc-300 dark:hover:bg-blue-950/20 dark:hover:text-blue-400 print:bg-transparent print:px-0 print:py-0 print:font-normal print:text-black"
             >
               <PhoneIcon className="shrink-0 text-zinc-400 transition-colors group-hover:text-blue-500 dark:text-zinc-500 dark:group-hover:text-blue-400 print:hidden" />
               <span>{phone}</span>
@@ -416,7 +393,7 @@ function ContactInfo({
       {location && (
         <>
           <dt className="sr-only">Location</dt>
-          <dd className="group flex items-center gap-2 rounded-md px-2 py-1.5 text-right font-medium text-zinc-700 transition-all duration-200 hover:bg-zinc-50/50 dark:text-zinc-300 dark:hover:bg-zinc-950/20 print:bg-transparent print:text-black print:font-normal print:px-0 print:py-0">
+          <dd className="group flex items-center gap-2 rounded-md px-2 py-1.5 text-right font-medium text-zinc-700 transition-all duration-200 hover:bg-zinc-50/50 dark:text-zinc-300 dark:hover:bg-zinc-950/20 print:bg-transparent print:px-0 print:py-0 print:font-normal print:text-black">
             <LocationIcon className="shrink-0 text-zinc-400 transition-colors group-hover:text-zinc-600 dark:text-zinc-500 dark:group-hover:text-zinc-300 print:hidden" />
             <span>{location}</span>
           </dd>
@@ -437,13 +414,15 @@ function SkillCategory({
 }) {
   const colorClasses = {
     blue: "text-blue-700 dark:text-blue-400",
-    orange: "text-orange-700 dark:text-orange-400", 
-    zinc: "text-zinc-700 dark:text-zinc-400"
+    orange: "text-orange-700 dark:text-orange-400",
+    zinc: "text-zinc-700 dark:text-zinc-400",
   };
 
   return (
     <div className="space-y-3 print:space-y-1">
-      <h3 className={`text-sm/6 font-semibold uppercase tracking-wide ${colorClasses[color]} print:text-black print:text-sm print:font-semibold print:normal-case print:tracking-normal`}>
+      <h3
+        className={`text-sm/6 font-semibold uppercase tracking-wide ${colorClasses[color]} print:text-sm print:font-semibold print:normal-case print:tracking-normal print:text-black`}
+      >
         {title}:
       </h3>
       <div className="flex flex-wrap gap-2 print:inline print:text-black">
@@ -455,7 +434,7 @@ function SkillCategory({
 
 function SkillBadge({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center rounded-md bg-zinc-100 px-2.5 py-1 text-sm/5 font-medium text-zinc-800 transition-colors hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700 print:bg-transparent print:text-xs print:text-black print:px-0 print:py-0 print:after:content-[',_'] print:last:after:content-['']">
+    <span className="inline-flex items-center rounded-md bg-zinc-100 px-2.5 py-1 text-sm/5 font-medium text-zinc-800 transition-colors hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700 print:bg-transparent print:px-0 print:py-0 print:text-xs print:text-black print:after:content-[',_'] print:last:after:content-['']">
       {children}
     </span>
   );
@@ -489,28 +468,32 @@ function Experience({
   const dateRange = `${yearString} ${monthString}`.trim();
 
   return (
-    <div className="group relative break-inside-avoid-page space-y-4 border-l-4 border-transparent pl-6 transition-all duration-200 hover:border-blue-300 hover:bg-blue-50/30 dark:hover:border-blue-700 dark:hover:bg-blue-950/20 print:border-l-0 print:bg-transparent print:pl-0 print:space-y-2 print:hover:bg-transparent">
+    <div className="group relative break-inside-avoid-page space-y-4 border-l-4 border-transparent pl-6 transition-all duration-200 hover:border-blue-300 hover:bg-blue-50/30 dark:hover:border-blue-700 dark:hover:bg-blue-950/20 print:space-y-2 print:border-l-0 print:bg-transparent print:pl-0 print:hover:bg-transparent">
       <div className="space-y-2 print:space-y-1">
         <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-start print:gap-1">
-          <h3 className="text-lg/7 font-bold text-zinc-950 transition-colors group-hover:text-blue-900 dark:text-white dark:group-hover:text-blue-100 print:text-base print:text-black print:font-bold print:group-hover:text-black">
+          <h3 className="text-lg/7 font-bold text-zinc-950 transition-colors group-hover:text-blue-900 dark:text-white dark:group-hover:text-blue-100 print:text-base print:font-bold print:text-black print:group-hover:text-black">
             {title}
           </h3>
           <time
-            className="text-sm/6 font-medium text-zinc-500 dark:text-zinc-400 print:text-sm print:text-black print:font-normal"
+            className="text-sm/6 font-medium text-zinc-500 dark:text-zinc-400 print:text-sm print:font-normal print:text-black"
             dateTime={format(startDate, "yyyy-MM-dd")}
           >
             {format(startDate, "MMM yyyy")} -{" "}
             {format(endDate ?? new Date(), "MMM yyyy")}{" "}
-            {showDateRange && <span className="text-zinc-400 print:text-black">({dateRange})</span>}
+            {showDateRange && (
+              <span className="text-zinc-400 print:text-black">
+                ({dateRange})
+              </span>
+            )}
           </time>
         </div>
-        <h4 className="text-lg/6 font-bold text-orange-600 transition-colors group-hover:text-orange-700 dark:text-orange-400 dark:group-hover:text-orange-300 print:text-sm print:text-black print:font-semibold print:italic print:group-hover:text-black">
+        <h4 className="text-lg/6 font-bold text-orange-600 transition-colors group-hover:text-orange-700 dark:text-orange-400 dark:group-hover:text-orange-300 print:text-sm print:font-semibold print:italic print:text-black print:group-hover:text-black">
           {subtitle}
         </h4>
       </div>
 
       {children && (
-        <div className="space-y-4 text-base/7 text-zinc-600 dark:text-zinc-300 print:space-y-2 print:text-sm print:text-black print:leading-relaxed">
+        <div className="space-y-4 text-base/7 text-zinc-600 dark:text-zinc-300 print:space-y-2 print:text-sm print:leading-relaxed print:text-black">
           {children}
         </div>
       )}
