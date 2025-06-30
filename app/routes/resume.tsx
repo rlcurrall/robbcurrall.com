@@ -313,8 +313,8 @@ function InternalSection({
 
 function InternalSeparator() {
   return (
-    <div className="my-12 flex items-center justify-center print:hidden">
-      <div className="flex items-center space-x-3">
+    <div className="my-12 flex items-center justify-center print:my-8 print:block">
+      <div className="flex items-center space-x-3 print:hidden">
         <div className="h-px w-12 bg-gradient-to-r from-transparent to-blue-200/60 dark:to-white/40"></div>
         <div className="h-0.5 w-0.5 rounded-full bg-blue-300/60 dark:bg-white/60"></div>
         <div className="h-px w-12 bg-gradient-to-l from-transparent to-blue-200/60 dark:to-white/40"></div>
