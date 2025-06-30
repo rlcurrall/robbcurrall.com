@@ -82,30 +82,31 @@ export default function Resume() {
               showDateRange
             >
               <p>
-                As a Senior Software Engineer on the &quot;Homeowner
-                Experience&quot; team at Vantaca, I lead the technical design
-                and implementation of a cutting-edge payment solution within our
-                existing HOA management software, lead the rewrite of our
-                homeowner portal, as well as the creation of an AI powered
-                chatbot for answering homeowner questions related to their HOA
-                and CC&amp;Rs.
+                As a Senior Software Engineer at Vantaca, I initially led the
+                technical design and implementation of a cutting-edge payment
+                solution within our existing HOA management software,
+                contributing to over $1 billion in processed payments. Working
+                primarily in C# and .NET, I designed multiple API services and
+                introduced serverless functions for processing background queues
+                and webhooks.
               </p>
               <p>
-                Working primarily in C# and leveraging the .NET framework, I
-                designed multiple API services while also introducing serverless
-                functions into our stack. These functions played a pivotal role
-                in processing background queues and incoming webhooks, allowing
-                our system to scale efficiently and independently of user-facing
-                APIs.
+                In October 2024, I transitioned to developing &quot;Scout,&quot;
+                an AI research agent built into our flagship product using
+                LangChain/LangGraph. Scout performed semantic search across HOA
+                documents, help articles, and database records to assist
+                management company employees. I focused heavily on building the
+                data ingestion pipeline into our vector store, creating a
+                comprehensive knowledge base for AI-powered assistance.
               </p>
               <p>
-                In the first 12 months after the launch of our payment solution
-                we have processed over $313 million in gross volume. The robust
-                retry mechanisms and alerting we implemented ensured that
-                disruptions to payment processing was kept to a minimum. As a
-                result, we were able to act quickly to any issues and reslove
-                them before any customers were affected, which in turn reduced
-                the support tickets generated related to payments.
+                Since April 2025, I&apos;ve been leading the AI Platform team,
+                focusing on boosting AI adoption across the organization. This
+                includes onboarding engineering teams with AI tools like Cursor
+                and Devin, building automated release note generation,
+                implementing support ticket triage systems, and developing an
+                authenticated MCP Server for internal data access through a
+                unified interface.
               </p>
             </Experience>
 
