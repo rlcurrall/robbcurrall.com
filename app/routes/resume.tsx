@@ -221,6 +221,15 @@ export default function Resume() {
                 <SkillBadge>Vue</SkillBadge>
               </SkillCategory>
 
+              <SkillCategory title="AI & Machine Learning" color="green">
+                <SkillBadge>LangChain</SkillBadge>
+                <SkillBadge>LangGraph</SkillBadge>
+                <SkillBadge>Vector Databases</SkillBadge>
+                <SkillBadge>Semantic Search</SkillBadge>
+                <SkillBadge>AI Agent Development</SkillBadge>
+                <SkillBadge>MCP Protocol</SkillBadge>
+              </SkillCategory>
+
               <SkillCategory title="Infrastructure & Tools" color="orange">
                 <SkillBadge>CI/CD</SkillBadge>
                 <SkillBadge>Kubernetes</SkillBadge>
@@ -410,13 +419,14 @@ function SkillCategory({
   children,
 }: {
   title: string;
-  color: "blue" | "orange" | "zinc";
+  color: "blue" | "orange" | "zinc" | "green";
   children: React.ReactNode;
 }) {
   const colorClasses = {
     blue: "text-blue-700 dark:text-blue-400",
     orange: "text-orange-700 dark:text-orange-400",
     zinc: "text-zinc-700 dark:text-zinc-400",
+    green: "text-green-700 dark:text-green-400",
   };
 
   return (
